@@ -12,6 +12,14 @@ const server = Hapi.server({
             additionalExposedHeaders: ['Accept'], // an array of additional exposed headers
             maxAge: 60,
             credentials: true // boolean - 'Access-Control-Allow-Credentials'
+        },
+        validate: {
+            failAction: async (req, res, err) => {
+                return err
+            },
+            options: {
+                abortEarly: false
+            }
         }
     }
 });

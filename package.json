@@ -17,6 +17,7 @@
     "hapi-swagger": "^14.2.4",
     "joi": "^17.4.2",
     "mysql2": "^2.3.0",
+    "pg": "^8.7.1",
     "sequelize": "^6.7.0",
     "sequelize-cli": "^6.2.0"
   }
