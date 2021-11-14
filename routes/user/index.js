@@ -4,6 +4,8 @@ const { registration } = require('../../controllers/registration');
 
 const { loginUser } = require('../../controllers/auth');
 
+const { userDetails } = require('../../controllers/user');
+
 const router = [
     {
         path: '/user-registration',
@@ -39,6 +41,17 @@ const router = [
                     password: Joi.string().required()
                 })
             }
+        }
+    },{
+        path: '/user-details',
+        method: 'get',
+        options: {
+            handler: userDetails,
+            description: 'User details of a logged in user',
+            notes: 'User details',
+            tags: ['api'],
+            //auth: false, 
+            /*this route should be under authorization ,we can also write auth: 'jwt' for better understanding */
         }
     }
 ]

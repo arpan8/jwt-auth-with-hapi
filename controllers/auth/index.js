@@ -19,6 +19,8 @@ exports.jwtAuthentication = async (server) =>{
             timeSkewSec: 15
         },
         validate: (artifacts, request, h) => {
+            
+            request.user = artifacts.decoded.payload.user;
 
             return {
                 isValid: true,
