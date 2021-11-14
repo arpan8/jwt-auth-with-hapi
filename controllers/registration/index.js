@@ -15,7 +15,9 @@ exports.registration = async(req, res)=>{
         })
 
         if(emailExists){
+
             return success({},'Email already exists')(res)
+
         }
 
         let mobileExists = await user.findOne({
@@ -25,15 +27,22 @@ exports.registration = async(req, res)=>{
         })
 
         if(mobileExists){
+
             return success({},'Mobile number already exists')(res)
+
         }
         
 
         let create = await user.create({
+
             first_name: rb.first_name,
+
             last_name: rb.last_name,
+
             email: rb.email,
+
             password: password,
+            
             mobile_no: rb.mobile_no
 
         })
