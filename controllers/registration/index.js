@@ -16,7 +16,7 @@ exports.registration = async(req, res)=>{
 
         if(emailExists){
 
-            return success({},'Email already exists')(res)
+            return success({error: 'Email already exists'})(res)
 
         }
 
@@ -28,7 +28,7 @@ exports.registration = async(req, res)=>{
 
         if(mobileExists){
 
-            return success({},'Mobile number already exists')(res)
+            return success({error:'Mobile number already exists'})(res)
 
         }
         
