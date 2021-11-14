@@ -22,7 +22,7 @@ const router = [
                     last_name:  Joi.string().required(),
                     email:  Joi.string().email().required(),
                     password: Joi.string().required(),
-                    mobile_no: Joi.number().integer().min(10**9).max(10**10 - 1).required()
+                    mobile_number: Joi.number().integer().min(10**9).max(10**10 - 1).required()
                 })
             }
         }

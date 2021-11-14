@@ -3,7 +3,7 @@ const user = require('../../models').user;
 
 exports.userDetails = async(req, res)=>{
     try {
-        
+
         const userDetails = await user.findOne({
             where:{
                 id: req.user.id

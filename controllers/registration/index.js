@@ -10,7 +10,7 @@ exports.registration = async(req, res)=>{
 
         let emailExists = await user.findOne({
             where:{
-                email: rb.eamil
+                email: rb.email
             },attributes: ['id']
         })
 
@@ -22,7 +22,7 @@ exports.registration = async(req, res)=>{
 
         let mobileExists = await user.findOne({
             where:{
-                email: rb.mobile_no
+                mobile_number: rb.mobile_number
             },attributes: ['id']
         })
 
@@ -38,7 +38,7 @@ exports.registration = async(req, res)=>{
             last_name: rb.last_name,
             email: rb.email,
             password: password,
-            mobile_no: rb.mobile_no
+            mobile_number: rb.mobile_number
         })
 
         return success(create,'User created successfully')(res);
