@@ -7,9 +7,11 @@ const HapiSwagger = require('hapi-swagger');
 const server = require('./config/server');
 const baseRouter = require('./routes');
 const Pack = require('./package');
-
+const { jwtAuthentication } = require('./controllers/auth');
 
 const init = async () => {
+
+    await jwtAuthentication(server);
 
     const swaggerOptions = {
         info:{

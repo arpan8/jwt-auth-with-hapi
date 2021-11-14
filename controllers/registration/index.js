@@ -34,17 +34,11 @@ exports.registration = async(req, res)=>{
         
 
         let create = await user.create({
-
             first_name: rb.first_name,
-
             last_name: rb.last_name,
-
             email: rb.email,
-
             password: password,
-            
             mobile_no: rb.mobile_no
-
         })
 
         return success(create,'User created successfully')(res);

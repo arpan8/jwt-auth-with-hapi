@@ -16,7 +16,7 @@ exports.hashPassword =(password) => {
     })
 }
 
-exports.verify =(password, hash) => {
+exports.verifyPassword =(password, hash) => {
 
     return new Promise((resolve, reject) => {
 

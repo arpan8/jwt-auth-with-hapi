@@ -1,5 +1,8 @@
 const Joi = require('joi');
+
 const { registration } = require('../../controllers/registration');
+
+const { loginUser } = require('../../controllers/auth');
 
 const router = [
     {
@@ -10,6 +13,7 @@ const router = [
             description: 'Registration of an user with basic infos',
             notes: 'User registration',
             tags: ['api'],
+            auth: false,
             validate: {
                 payload: Joi.object({
                     first_name:  Joi.string().required(),
@@ -18,7 +22,22 @@ const router = [
                     password: Joi.string().required(),
                     mobile_no: Joi.number().integer().min(10**9).max(10**10 - 1).required()
                 })
-                //.options({abortEarly : false})
+            }
+        }
+    },{
+        path: '/user-login',
+        method: 'post',
+        options: {
+            handler: loginUser,
+            description: 'Login of an user with basic infos',
+            notes: 'User login',
+            tags: ['api'],
+            auth: false,
+            validate: {
+                payload: Joi.object({
+                    email:  Joi.string().email().required(),
+                    password: Joi.string().required()
+                })
             }
         }
     }
