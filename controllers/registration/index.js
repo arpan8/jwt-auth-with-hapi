@@ -6,7 +6,6 @@ exports.registration = async(req, res)=>{
     try {
         const rb = req.payload;
 
-        let password = await hashPassword(rb.password)
 
         let emailExists = await user.findOne({
             where:{
@@ -32,6 +31,7 @@ exports.registration = async(req, res)=>{
 
         }
         
+        let password = await hashPassword(rb.password)
 
         let create = await user.create({
             first_name: rb.first_name,
