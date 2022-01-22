@@ -14,7 +14,7 @@ const router = [
             handler: registration,
             description: 'Registration of an user with basic infos',
             notes: 'User registration',
-            tags: ['api'],
+            tags: ['api', 'user'],
             auth: false,
             validate: {
                 payload: Joi.object({
@@ -33,7 +33,7 @@ const router = [
             handler: loginUser,
             description: 'Login of an user with basic infos',
             notes: 'User login',
-            tags: ['api'],
+            tags: ['api','user'],
             auth: false,
             validate: {
                 payload: Joi.object({
@@ -49,7 +49,7 @@ const router = [
             handler: userDetails,
             description: 'User details of a logged in user',
             notes: 'User details',
-            tags: ['api'],
+            tags: ['api','user'],
             //auth: false, 
             /*this route should be under authorization ,we can also write auth: 'jwt' for better understanding */
         }

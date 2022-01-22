@@ -14,6 +14,8 @@ const init = async () => {
     await jwtAuthentication(server);
 
     const swaggerOptions = {
+        documentationPath: '/docs',
+        basePath: '/api',
         info:{
             title:'Test API Documentation with authentication',
             version:Pack.version,
@@ -26,16 +28,9 @@ const init = async () => {
             }
         },
         security: [{ jwt: [] }],
-        schemes: ['http','https']
+        schemes: ['http','https'],
+        grouping: 'tags'
     }
-
-    server.route({
-        method: 'GET',
-        path: '/',
-        handler: (request, h) => {
-            return 'Hello World!';
-        }
-    });
 
 
     // Adding plugins for swagger docs;
